@@ -11,18 +11,15 @@ function Todolist() {
   function addTodo(){
     setTodos([...todos,todo])
   }
-  useEffect(function(){
-    console.log("useEffect called")
-  })
-  useEffect(function(){
-    console.log("useEffect with empty dependency array")
-  },[])
-  useEffect(()=>{
-    console.log("useEffect with todo state variable in dependency array")
-  },[todo])
-  useEffect(()=>{
-    console.log("useEffect with todos length in dependency array")
+  
+  var delTodo=React.useCallback((index)=>{
+    var temp = [...todos];
+    temp.splice(index,1);
+    console.log(temp)
+    setTodos([...temp])
   },[todos.length])
+
+  
   return (
     <div className='border border-4 m-2 p-2 border-danger'>
       <h1>Todolist</h1>
@@ -31,7 +28,7 @@ function Todolist() {
       <ul>
         {
           todos.map((t,i)=>{
-            return <Todo t={t}></Todo>
+            return <Todo t={t} delTodo={delTodo} i={i}></Todo>
           })
         }
       </ul>
