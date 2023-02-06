@@ -5,7 +5,7 @@ import Products from './Products';
 function App() {
   return (
     <div className='border border-4 border-danger p-2 w-100'>
-      <h1>Welcome to Edupoly ReactJS</h1>
+      <h1>Welcome to Edupoly</h1>
       <Products></Products>
     </div>
   );
