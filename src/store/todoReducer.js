@@ -1,10 +1,10 @@
 const initalState = {
-  todos:["clean car","get new bike","promote channel"]
+  alltodos:["clean car","get new bike","promote channel"]
 }
 function todoReducer(state=initalState,action){
 
   if(action.type==='ADDTODO'){
-    return {...state,todos:[...state.todos,action.payload]}
+    return {...state,alltodos:[...state.alltodos,action.payload]}
   }
   return state;
 }
